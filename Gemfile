@@ -15,6 +15,11 @@ group :development, :test do
 	gem 'web-console', '~> 2.0'
 end
 
+group :production do 
+	gem 'pg'
+	gem 'rails_12factor'
+end
+
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 # Bootstrap
@@ -22,8 +27,5 @@ gem 'bootstrap-sass', '~> 3.3.5.1'
 
 # Image uploader
 gem 'paperclip', '~> 4.3'
-
-group :production do 
-	gem 'pg'
-	gem 'rails_12factor'
-end
+gem 'paperclip-dropbox', '~> 1.3.2'
+gem 'figaro', '~> 1.1.1'

@@ -8,8 +8,8 @@
 	</div>
 	<div class="col-sm-7">
 		<h3><%= @listing.name %></h3>
+		<h5><%= number_to_currency(@listing.price) %></h5>
 		<p><%= @listing.description %></p>
-		<p><%= number_to_currency(@listing.price) %></p>
 	</div>
 </div>
 

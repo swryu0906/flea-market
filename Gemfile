@@ -15,4 +15,8 @@ group :development, :test do
 end
 gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
+# Bootstrap
 gem 'bootstrap-sass', '~> 3.3.5.1'
+
+# Image uploader
+gem 'paperclip', '~> 4.3'

@@ -1,6 +1,11 @@
+<div class="jumbotron">
+  <h2>Discover what you need.</h2>
+  <!--<h3>Flea Market is a marketplace where people around the world connect, both online and offline, to make, sell and buy their goods.</h3>-->
+</div>
+
 <div class="row">
   <% @listings.each do |listing| %>
-    <div class="col-sm-3">
+    <div class="col-md-3 col-sm-6">
       <div class="thumbnail">
         <%= link_to image_tag(listing.image.url), listing, class: 'img-responsive', alt: 'listing-#{listing.id}-image' %><br>
         <div class="caption">

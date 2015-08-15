@@ -44,3 +44,16 @@ body {
 		margin: 0px;
 	}
 }
+
+.jumbotron {
+	background: url('https://www.dropbox.com/s/ahmigaozg0b8rbh/flea_market_5.jpg?raw=1') no-repeat center center; 
+	-webkit-background-size: cover;
+	-moz-background-size: cover;
+	-o-background-size: cover;
+	background-size: cover;
+	padding-bottom: 300px;
+	h1, h2 {
+		font-family: guardian-egyptt, georgia, serif; 
+		color: white;
+	}
+}

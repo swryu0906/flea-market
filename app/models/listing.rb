@@ -2,7 +2,7 @@ class Listing < ActiveRecord::Base
 	if Rails.env.development?
 		has_attached_file 	:image, 
 							:styles => { :medium => "300x", :thumb => "100x100>" }, 
-							:default_url => "no-image-available.png"
+							:default_url => "https://www.dropbox.com/s/ywxu9k6aaj1rr30/no-image-available.png?raw=1"
 	else
 		has_attached_file 	:image, 
 							:styles => { :medium => "300x", :thumb => "100x100>" }, 

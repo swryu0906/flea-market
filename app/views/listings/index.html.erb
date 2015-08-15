@@ -2,22 +2,24 @@
   <% @listings.each do |listing| %>
     <div class="col-sm-3">
       <div class="thumbnail">
-        <%= image_tag listing.image.url, class: 'img-responsive', alt: 'listing image'%><br>
+        <%= link_to image_tag(listing.image.url), listing, class: 'img-responsive', alt: 'listing-#{listing.id}-image' %><br>
         <div class="caption">
-          <h3><%= listing.name %></h3>
+          <h3><%= link_to listing.name, listing %></h3>
           <div class="text-center">
             <p><%= number_to_currency(listing.price) %></p>
             <p><%= "by #{ listing.user.first_name } #{listing.user.last_name[0]}." %></p>
-            <%= link_to 'Show', listing, class: 'btn btn-link' %>
-            <%= link_to 'Edit', edit_listing_path(listing), class: 'btn btn-link' %> 
-            <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %>      
+            <% if current_user == listing.user %>
+              <%= link_to 'Edit', edit_listing_path(listing), class: 'btn btn-link' %> 
+              <%= link_to 'Delete', listing, method: :delete, data: { confirm: 'Are you sure?' }, class: 'btn btn-link' %>      
+            <% end %>
           </div> 
         </div>
       </div>
     </div>
   <% end %>
 </div>
-
 <br>
 
-<%= link_to 'New Listing', new_listing_path, class: 'btn btn-link' %>
+<% if user_signed_in? %>
+  <%= link_to 'New Listing', new_listing_path, class: 'btn btn-link' %>
+<% end %>

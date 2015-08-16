@@ -1,21 +1,25 @@
-<div class="content-box thumbnail">
-	<div class="row">
-		<div class="col-md-5">
-			<div class="thumbnail">
-				<%= image_tag @listing.image.url, class: 'img-responsive' %>			
+<article>
+	<div class="container-fluid">
+		<div class="content-box thumbnail">
+			<div class="row">
+				<div class="col-md-4">
+					<div class="thumbnail">
+						<%= image_tag @listing.image.url, class: 'img-responsive' %>			
+					</div>
+				</div>
+				<div class="col-md-8">
+					<h3><%= @listing.name %></h3>
+					<h5><%= number_to_currency(@listing.price) %></h5>
+					<p><%= @listing.description %></p>
+				</div>
+			</div>
+			<br>
+			<div class="row text-center">
+				<% if current_user == @listing.user %>
+					<%= link_to 'Edit', edit_listing_path(@listing), class: 'btn btn-link' %> |
+				<% end %>
+				<%= link_to 'Back', listings_path, class: 'btn btn-link' %>
 			</div>
 		</div>
-		<div class="col-md-7">
-			<h3><%= @listing.name %></h3>
-			<h5><%= number_to_currency(@listing.price) %></h5>
-			<p><%= @listing.description %></p>
-		</div>
 	</div>
-	<br>
-	<div class="row text-center">
-		<% if current_user == @listing.user %>
-			<%= link_to 'Edit', edit_listing_path(@listing), class: 'btn btn-link' %> |
-		<% end %>
-		<%= link_to 'Back', listings_path, class: 'btn btn-link' %>
-	</div>
-</div>
+</article>

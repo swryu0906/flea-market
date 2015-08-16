@@ -1,26 +1,33 @@
-<div class="jumbotron">
-  <h2>Discover what you need.</h2>
-  <!--<h3>Flea Market is a marketplace where people around the world connect, both online and offline, to make, sell and buy their goods.</h3>-->
-</div>
-
-<div class="row">
-  <% @listings.each do |listing| %>
-    <div class="col-md-3 col-sm-6">
-      <div class="thumbnail">
-        <%= link_to image_tag(listing.image.url), listing, class: 'img-responsive', alt: 'listing-#{listing.id}-image' %><br>
-        <div class="caption">
-          <h3><%= link_to listing.name, listing %></h3>
-          <div class="text-center">
-            <p><%= number_to_currency(listing.price) %></p>
-            <p><%= "by #{ listing.user.first_name } #{listing.user.last_name[0]}." %></p>
-          </div> 
-        </div>
-      </div>
+<header>
+  <div class="jumbotron">
+    <div class="container">
+      <h2>Discover what you need.</h2>
+      <!--<h3>Flea Market is a marketplace where people around the world connect, both online and offline, to make, sell and buy their goods.</h3>-->
     </div>
-  <% end %>
-</div>
-<br>
+  </div>
+</header>
+<article>
+  <div class="container-fluid">
+    <div class="row">
+      <% @listings.each do |listing| %>
+        <div class="col-md-3 col-sm-6">
+          <div class="thumbnail">
+            <%= link_to image_tag(listing.image.url), listing, class: 'img-responsive', alt: 'listing-#{listing.id}-image' %><br>
+            <div class="caption">
+              <h3><%= link_to listing.name, listing %></h3>
+              <div class="text-center">
+                <p><%= number_to_currency(listing.price) %></p>
+                <p><%= "by #{ listing.user.first_name } #{listing.user.last_name[0]}." %></p>
+              </div> 
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+    <br>
 
-<% if user_signed_in? %>
-  <%= link_to 'New Listing', new_listing_path, class: 'btn btn-link' %>
-<% end %>
+    <% if user_signed_in? %>
+      <%= link_to 'New Listing', new_listing_path, class: 'btn btn-link' %>
+    <% end %>
+  </div>
+</article>

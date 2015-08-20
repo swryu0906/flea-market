@@ -1,0 +1,26 @@
+<article>
+	<div class="container-fluid">
+		<div class="content-box thumbnail">
+			<h3 class="text-center">Your Sale History</h3>
+			<table class="table table-bordered table-hover">
+				<tr>
+					<th class="text-center">Image</th>
+					<th class="text-center">Item</th>
+					<th class="text-center">Price</th>
+					<th class="text-center">Customer</th>
+					<th class="text-center">Date Sold</th>
+				</tr>
+				<% @orders.each do |order| %>
+					<tr>
+						<td class="text-center"><%= link_to order.listing do %><img src="<%= order.listing.image.url(:thumb) %>" alt="listing-<%= order.listing.id %>-image" class: "img-responsive center-block" ><% end %></td>
+						<td class="text-center"><%= link_to order.listing.name, order.listing %></td>
+						<td class="text-center"><%= number_to_currency(order.listing.price) %></td>
+						<td class="text-center"><%= order.buyer.first_name %> <%= order.buyer.last_name %></td>
+						<td class="text-center"><%= order.created_at.strftime("%b %e, %Y %l:%M %p") %></td>
+					</tr>
+				<% end %>
+			</table>
+			
+		</div>
+	</div>
+</article>

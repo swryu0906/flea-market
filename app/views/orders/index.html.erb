@@ -20,9 +20,9 @@
         <td><%= order.city %></td>
         <td><%= order.state %></td>
         <td><%= order.zip %></td>
-        <td><%= link_to 'Show', order %></td>
-        <td><%= link_to 'Edit', edit_order_path(order) %></td>
-        <td><%= link_to 'Destroy', order, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Show', listing_order_path(@listing, order) %></td>
+        <td><%= link_to 'Edit', edit_listing_order_path(@listing, order) %></td>
+        <td><%= link_to 'Destroy', listing_order_path(@listing, order), method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
   </tbody>
@@ -30,4 +30,4 @@
 
 <br>
 
-<%= link_to 'New Order', new_order_path %>
+<%= link_to 'New Order', new_listing_order_path(@listing) %>

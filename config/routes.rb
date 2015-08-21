@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   devise_for :users
   
   resources :listings do
-    resources :orders, only: [:index, :new, :create]
+    resources :orders, only: [:new, :create]
   end
 
   root 'listings#index'

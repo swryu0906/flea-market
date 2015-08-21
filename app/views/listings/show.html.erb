@@ -4,7 +4,9 @@
 			<div class="row">
 				<div class="col-md-4">
 					<div class="thumbnail wrapper">
-						<div class="ribbon-wrapper-green"><div class="ribbon-green">Sold Out</div></div>
+						<% if @listing.sold %>
+							<div class="ribbon-wrapper-green"><div class="ribbon-green">Sold Out</div></div>
+						<% end %>
 						<%= image_tag @listing.image.url(:large), class: 'img-responsive' %>			
 					</div>
 				</div>
@@ -12,7 +14,7 @@
 					<h3><%= @listing.name %></h3>
 					<h5><%= number_to_currency(@listing.price) %></h5>
 					<p><%= @listing.description %></p>
-					<% unless @listing.user == current_user %>
+					<% unless ( @listing.user == current_user ) || ( @listing.sold )%>
 						<br />
 						<%= link_to 'Buy now', new_listing_order_path(@listing), class: 'btn btn-primary' %>
 					<% end %>

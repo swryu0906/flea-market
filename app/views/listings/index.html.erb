@@ -12,7 +12,9 @@
       <% @listings.each do |listing| %>
         <div class="col-md-3 col-sm-6">
           <div class="thumbnail wrapper">
-            <div class="ribbon-wrapper-green"><div class="ribbon-green">Sold Out</div></div>
+            <% if listing.sold %>
+              <div class="ribbon-wrapper-green"><div class="ribbon-green">Sold Out</div></div>
+            <% end %>
             <div class="image">
               <%= link_to listing do %><%= image_tag listing.image.url(:medium), class: 'img-responsive', alt: 'listing-#{listing.id}-image' %><% end %>
               <br>

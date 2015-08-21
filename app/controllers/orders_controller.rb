@@ -31,10 +31,12 @@
     @order.listing_id = @listing.id
     @order.seller_id = @listing.user_id
     @order.buyer_id = current_user.id
+    @order.listing.sold = true
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to sales_path, notice: 'Order was successfully created.' }
+        @order.listing.save
+        format.html { redirect_to purchases_path, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }

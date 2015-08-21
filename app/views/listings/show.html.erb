@@ -3,16 +3,19 @@
 		<div class="content-box thumbnail">
 			<div class="row">
 				<div class="col-md-4">
-					<div class="thumbnail">
-						<%= image_tag @listing.image.url, class: 'img-responsive' %>			
+					<div class="thumbnail wrapper">
+						<div class="ribbon-wrapper-green"><div class="ribbon-green">Sold Out</div></div>
+						<%= image_tag @listing.image.url(:large), class: 'img-responsive' %>			
 					</div>
 				</div>
 				<div class="col-md-8">
 					<h3><%= @listing.name %></h3>
 					<h5><%= number_to_currency(@listing.price) %></h5>
 					<p><%= @listing.description %></p>
-					<br />
-					<%= link_to 'Buy now', new_listing_order_path(@listing), class: 'btn btn-primary' %>
+					<% unless @listing.user == current_user %>
+						<br />
+						<%= link_to 'Buy now', new_listing_order_path(@listing), class: 'btn btn-primary' %>
+					<% end %>
 				</div>
 			</div>
 			<br>

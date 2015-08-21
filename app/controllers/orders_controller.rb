@@ -11,6 +11,12 @@
     @orders = Order.where(buyer: current_user).order("created_at DESC")
   end
 
+  # GET /orders
+  # GET /orders.json
+  def index
+    @orders = Order.all.order("created_at DESC")
+  end
+
   # GET /orders/new
   def new
     @order = Order.new
@@ -28,7 +34,7 @@
 
     respond_to do |format|
       if @order.save
-        format.html { redirect_to listing_orders_path(@listing), notice: 'Order was successfully created.' }
+        format.html { redirect_to sales_path, notice: 'Order was successfully created.' }
         format.json { render :show, status: :created, location: @order }
       else
         format.html { render :new }

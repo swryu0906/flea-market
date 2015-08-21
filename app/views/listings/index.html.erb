@@ -11,10 +11,14 @@
     <div class="row">
       <% @listings.each do |listing| %>
         <div class="col-md-3 col-sm-6">
-          <div class="thumbnail">
-            <%= link_to image_tag(listing.image.url), listing, class: 'img-responsive', alt: 'listing-#{listing.id}-image' %><br>
+          <div class="thumbnail wrapper">
+            <div class="ribbon-wrapper-green"><div class="ribbon-green">Sold Out</div></div>
+            <div class="image">
+              <%= link_to listing do %><%= image_tag listing.image.url(:medium), class: 'img-responsive', alt: 'listing-#{listing.id}-image' %><% end %>
+              <br>
+            </div>
             <div class="caption">
-              <h3><%= link_to listing.name, listing %></h3>
+              <h3><%= link_to truncate(listing.name, length: 100, separator: ' '), listing %></h3>
               <div class="text-center">
                 <p><%= number_to_currency(listing.price) %></p>
                 <p><%= "by #{ listing.user.first_name } #{listing.user.last_name[0]}." %></p>

@@ -13,7 +13,7 @@
         <% @listings.each do |listing| %>
           <tr>
             <td class="text-center"><%= link_to listing do %><img src="<%= listing.image.url(:thumb) %>" alt="listing-<%= listing.id %>-image" class: "img-responsive center-block" ><% end %></td>
-            <td><%= link_to listing.name, listing %></td>
+            <td><%= link_to truncate(listing.name, length: 70, separator: ' '), listing %></td>
             <td><%= truncate(listing.description, length: 200, separator: ' ') %></td>
             <td><%= number_to_currency(listing.price) %></td>
             <td>

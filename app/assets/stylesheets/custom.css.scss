@@ -82,17 +82,16 @@ label {
 	}
 }
 
-.form-box, content-box {
-	background-color: white;
-	margin-top: 30px;
-}
-
 .form-box {
+	background-color: white;
+	margin: 20px 0;
 	padding: 40px;
 }
 
 .content-box {
-	padding: 40px 30px 20px;
+	background-color: white;
+	margin: 20px 0;
+	padding: 40px 30px;
 }
 
 #square {

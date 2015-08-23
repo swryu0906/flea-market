@@ -35,3 +35,6 @@ gem 'devise', '~> 3.5.2'
 
 # Stripe
 gem 'stripe'
+
+# Searchkick
+gem 'searchkick', '~> 0.9.0'

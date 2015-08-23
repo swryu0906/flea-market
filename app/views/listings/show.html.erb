@@ -15,7 +15,7 @@
 				<div class="col-md-7">
 					<h3><%= @listing.name %></h3>
 					<h4><%= number_to_currency(@listing.price) %></h4>
-					<p><%= @listing.description %></p>
+					<p><%= h(@listing.description).gsub(/\n/, '<br />').html_safe %></p>
 					<% unless ( @listing.user == current_user ) || ( @listing.sold )%>
 						<br />
 						<%= link_to 'Buy now', new_listing_order_path(@listing), class: 'btn btn-primary', data: { no_turbolink: true } %>

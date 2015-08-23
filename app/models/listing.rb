@@ -1,4 +1,6 @@
 class Listing < ActiveRecord::Base
+	searchkick
+
 	if Rails.env.development?
 		has_attached_file 	:image, 
 							:styles => { :large => "600x600>", :medium => "400x400>", :thumb => "100x100>" }, 

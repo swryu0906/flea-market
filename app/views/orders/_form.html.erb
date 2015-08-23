@@ -11,6 +11,10 @@
     </div>
   <% end %>
 
+  <div id="stripe_error" class="alert alert-danger" style="display: none">
+    <noscritp>JavaScript is not enabled and is required for this form. First enable it in your web browser settings.</noscritp>
+  </div>
+
   <div class="col-md-5">
     <div class="thumbnail">
       <%= image_tag @listing.image.url(:large), class: 'img-responsive' %>  
